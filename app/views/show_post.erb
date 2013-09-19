@@ -1,14 +1,14 @@
-	<h3><%= @post.title %></h2>
-	<p><%= @post.body %></p>
-	<p><%= @post.tags %></p>
+<h3>Title:  <%= @post.title %></h2>
+	<p>BODY:  <%= @post.body %></p>
+	<p>Tags:  <%= @post.show_tags %></p>
 
-	<form action="/new_post" method="GET">
+	<form action="/posts/<%= @post.id %>/edit" method="GET">
 		<div>
 			<input type="submit" value="Edit">
 		</div>
 	</form>
 
-	<form action="/delete_post" method="POST">
+	<form action="/delete_post/<%= @post.id %>" method="POST">
 		<div>
 			<input type="submit" value="Delete">
 		</div>

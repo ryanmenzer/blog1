@@ -1,0 +1,18 @@
+<h2>All Tags:</h2>
+
+	<% @tags.each do |tag| %>
+	<h3><%= tag.name %></h3>
+	<ul><% tag.posts.each do |post| %>
+		<li><a href="/posts/<%=post.id %>"><%= post.title %></a></li>
+		<% end %>
+	</ul>
+	<% end %>
+
+
+
+	<form action="/posts" method="GET">
+		<div>
+			<input type="submit" value="Show list of all posts">
+		</div>
+
+	</form>
