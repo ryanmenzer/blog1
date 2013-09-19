@@ -11,7 +11,7 @@ end
 
 get '/posts/:id/edit' do
 	@post = Post.find(params[:id])
-	erb :new_post
+	erb :edit_post
 end
 
 get '/posts/:id' do
@@ -20,6 +20,16 @@ get '/posts/:id' do
 end
 
 #-----------POSTS
+
+post '/update_post/:id' do
+	tags = params[:tags].gsub(/\s/, "").split(",").map {|tag| Tag.find_or_create_by_name(tag)}
+	@post = Post.find(params[:id])
+	@post.title = params[:title]
+	@post.body = params[:body]
+	@post.tags = tags
+	@post.save
+	redirect to('/posts')
+end
 
 post '/new_post' do
 	# puts params.inspect
