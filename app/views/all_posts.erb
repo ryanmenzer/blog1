@@ -1,6 +1,10 @@
-	<h2>All Posts:</h2>
+<h2>All Posts:</h2>
 
-
+<ul>
+	<% @posts.each do |post| %>
+	<li><a href="/posts/<%=post.id %>"><%= post.title %></a></li>
+	<% end %>
+</ul>
 
 
 	<form action="/show_by_tags" method="GET">

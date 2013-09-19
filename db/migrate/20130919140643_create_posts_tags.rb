@@ -2,7 +2,7 @@ class CreatePostsTags < ActiveRecord::Migration
   def change
   	create_table :posts do |t|
   		t.string :title
-  		t.string :body
+  		t.text :body
   		t.timestamps
   	end
 
@@ -12,8 +12,8 @@ class CreatePostsTags < ActiveRecord::Migration
   	end
 
   	create_table :posts_tags do |t|
-  		t.belongs_to :posts
-  		t.belongs_to :tags
+  		t.belongs_to :post
+  		t.belongs_to :tag
   	end
   end
 end
